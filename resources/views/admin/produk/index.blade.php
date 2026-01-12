@@ -4,6 +4,98 @@
     <meta charset="UTF-8">
     <title>Data Produk</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #fff0f6;
+    }
+
+    h4 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        color: #ff5da2;
+    }
+
+    /* Card */
+    .card {
+        border: none;
+        border-radius: 20px;
+        box-shadow: 0 12px 30px rgba(255,93,162,0.18);
+    }
+
+    /* Table */
+    .table {
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    .table thead {
+        background: linear-gradient(135deg, #ff5da2, #ff85b3);
+        color: white;
+        text-align: center;
+    }
+
+    .table tbody tr {
+        transition: all 0.25s ease;
+    }
+
+    .table tbody tr:hover {
+        background-color: #ffe6f0;
+    }
+
+    .table td, .table th {
+        vertical-align: middle;
+    }
+
+    /* Buttons */
+    .btn-primary {
+        background: linear-gradient(135deg, #ff5da2, #ff85b3);
+        border: none;
+        border-radius: 12px;
+    }
+
+    .btn-warning {
+        background: #ffd6e8;
+        border: none;
+        color: #ff2f92;
+        border-radius: 10px;
+    }
+
+    .btn-danger {
+        background: #ff2f92;
+        border: none;
+        border-radius: 10px;
+    }
+
+    .btn-outline-success {
+        border-color: #ff5da2;
+        color: #ff5da2;
+        border-radius: 12px;
+    }
+
+    .btn-outline-success:hover {
+        background: #ff5da2;
+        color: white;
+    }
+
+    /* Image */
+    img {
+        box-shadow: 0 6px 14px rgba(255,93,162,0.3);
+    }
+
+    /* Pagination */
+    .pagination .page-link {
+        color: #ff5da2;
+        border-radius: 10px;
+    }
+
+    .pagination .active .page-link {
+        background: #ff5da2;
+        border-color: #ff5da2;
+    }
+</style>
+
 </head>
 <body>
 
@@ -33,7 +125,7 @@
         <div class="card-body">
 
             <table class="table table-bordered table-striped align-middle">
-                <thead class="table-dark text-center">
+                <thead class="text-center">
                     <tr>
                         <th width="5%">No</th>
                         <th width="15%">Foto</th>

@@ -8,35 +8,100 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f8f9fa;
-    }
-    .sidebar {
-      min-height: 100vh;
-      background-color: #343a40;
-    }
-    .sidebar .nav-link {
-      color: #adb5bd;
-      font-weight: 500;
-    }
-    .sidebar .nav-link.active {
-      background-color: #495057;
-      color: #fff;
-      border-radius: 0.5rem;
-    }
-    .sidebar .nav-link:hover {
-      color: #fff;
-      background-color: #495057;
-      border-radius: 0.5rem;
-    }
-    .card-hover:hover {
-      transform: translateY(-5px);
-      transition: 0.3s;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-  </style>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #fff0f6;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #ff5da2, #ff85b3);
+    box-shadow: 4px 0 15px rgba(0,0,0,0.08);
+  }
+
+  .sidebar h4 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  .sidebar .nav-link {
+    color: #ffe6f0;
+    font-weight: 500;
+    margin: 4px 10px;
+    border-radius: 12px;
+    padding: 10px 14px;
+    transition: all 0.3s ease;
+  }
+
+  .sidebar .nav-link.active,
+  .sidebar .nav-link:hover {
+    background-color: #ffffff;
+    color: #ff5da2;
+  }
+
+  /* Main */
+  main h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: #ff5da2;
+  }
+
+  main p {
+    color: #6c757d;
+  }
+
+  /* Cards */
+  .card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(255,93,162,0.15);
+  }
+
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(255,93,162,0.25);
+  }
+
+  .card h5 {
+    font-weight: 600;
+  }
+
+  /* Custom Pink Cards */
+  .bg-success {
+    background: linear-gradient(135deg, #ff85b3, #ff5da2) !important;
+  }
+
+  .bg-warning {
+    background: linear-gradient(135deg, #ffd6e8, #ff85b3) !important;
+    color: #fff;
+  }
+
+  .bg-danger {
+    background: linear-gradient(135deg, #ff5da2, #ff2f92) !important;
+  }
+
+  .bg-info {
+    background: linear-gradient(135deg, #ffc1dd, #ff5da2) !important;
+  }
+
+  /* Logout button */
+  .sidebar button {
+    border-radius: 14px;
+    font-weight: 500;
+  }
+</style>
+
+
 </head>
 <body>
 <div class="container-fluid">
