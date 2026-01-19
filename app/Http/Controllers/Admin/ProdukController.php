@@ -42,12 +42,13 @@ public function create()
 public function store(Request $request)
 {
     $request->validate([
-        'kategori_id' => 'required',
-        'nama_produk' => 'required',
-        'harga' => 'required|numeric',
-        'stok' => 'required|numeric',
-        'foto' => 'image|mimes:jpg,png,jpeg|max:2048'
-    ]);
+    'kategori_id' => 'required|exists:kategoris,id',
+    'nama_produk' => 'required|string|max:255',
+    'harga' => 'required|integer|min:0',
+    'stok' => 'required|integer|min:0',
+    'deskripsi' => 'nullable|string',
+    'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048'
+]);
 
     if ($request->hasFile('foto')) {
         $foto = $request->file('foto')->store('produk', 'public');
@@ -80,12 +81,14 @@ public function update(Request $request, $id)
 {
     $produk = Produk::findOrFail($id);
 
-    $request->validate([
-        'nama_produk' => 'required',
-        'kategori_id' => 'required',
-        'harga' => 'required|numeric',
-        'foto' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
-    ]);
+$request->validate([
+    'nama_produk' => 'required|string|max:255',
+    'kategori_id' => 'required|exists:kategoris,id',
+    'harga' => 'required|integer|min:0',
+    'stok' => 'required|integer|min:0',
+    'deskripsi' => 'nullable|string',
+    'foto' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+]);
 
     // data update
     $data = $request->except('foto');

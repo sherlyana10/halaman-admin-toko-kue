@@ -1,3 +1,7 @@
+@extends('layouts.dashboard')
+
+@section('content')
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -110,6 +114,16 @@
                         <input type="number" name="harga" value="{{ $produk->harga }}" class="form-control">
                     </div>
 
+                        <div class="mb-3">
+                        <label>Stok</label>
+                        <input type="number" name="stok" value="{{ $produk->stok }}" class="form-control">
+                    </div>
+
+                    <div class="mb-3">
+                    <label>Deskripsi</label>
+                    <textarea name="deskripsi" class="form-control" rows="4">{{ $produk->deskripsi }}</textarea>
+                    </div>
+
                     <div class="mb-3">
                         <label>Foto Saat Ini</label><br>
                         <img src="{{ asset('storage/'.$produk->foto) }}" width="130">
@@ -135,3 +149,4 @@
 
 </body>
 </html>
+@endsection

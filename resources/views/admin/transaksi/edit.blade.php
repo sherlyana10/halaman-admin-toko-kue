@@ -1,3 +1,6 @@
+@extends('layouts.dashboard')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -206,3 +209,4 @@ $(document).ready(function(){
 
 </body>
 </html>
+@endsection

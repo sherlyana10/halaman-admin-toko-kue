@@ -1,3 +1,6 @@
+@extends('layouts.dashboard')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -125,50 +128,64 @@
         <div class="card-body">
 
             <table class="table table-bordered table-striped align-middle">
-                <thead class="text-center">
-                    <tr>
-                        <th width="5%">No</th>
-                        <th width="15%">Foto</th>
-                        <th>Nama Produk</th>
-                        <th>Kategori</th>
-                        <th>Harga</th>
-                        <th width="20%">Aksi</th>
-                    </tr>
-                </thead>
+                    <thead class="text-center">
+                        <tr>
+                            <th width="5%">No</th>
+                            <th width="15%">Foto</th>
+                            <th>Nama Produk</th>
+                            <th>harga</th>
+                            <th>Kategori</th>
+                            <th width="8%">Stok</th>
+                            <th>Deskripsi</th>
+                            <th width="20%">Aksi</th>
+                        </tr>
+                    </thead>
+
                 <tbody>
                     @forelse ($produks as $item)
-                        <tr>
-                            <td class="text-center">{{ $loop->iteration }}</td>
+                                        <tr>
+                        <td class="text-center">{{ $loop->iteration }}</td>
 
-                            <td class="text-center">
-                                @if($item->foto)
-                                    <img src="{{ asset('storage/'.$item->foto) }}" width="80" class="rounded">
-                                @else
-                                    <span class="text-muted">No Image</span>
-                                @endif
-                            </td>
+                        <td class="text-center">
+                            @if($item->foto)
+                                <img src="{{ asset('storage/'.$item->foto) }}" width="80" class="rounded">
+                            @else
+                                <span class="text-muted">No Image</span>
+                            @endif
+                        </td>
 
-                            <td>{{ $item->nama_produk }}</td>
-                            <td>{{ $item->kategori->nama_kategori ?? '-' }}</td>
-                            <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
+                        <td>{{ $item->nama_produk }}</td>
 
-                            <td class="text-center">
-                                <a href="{{ route('produk.edit', $item->id) }}" class="btn btn-warning btn-sm">
-                                    ✏️ Edit
-                                </a>
+                        <td>Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
 
-                                <form action="{{ route('produk.destroy', $item->id) }}" method="POST" class="d-inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button onclick="return confirm('Yakin hapus produk?')" class="btn btn-danger btn-sm">
-                                        🗑 Hapus
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
+                        <td>{{ $item->kategori->nama_kategori ?? '-' }}</td>
+
+                        <td class="text-center">
+                            {{ $item->stok ?? 0 }}
+                        </td>
+
+                        <td style="max-width:250px">
+                            {{ $item->deskripsi ?? '-' }}
+                        </td>
+
+                        <td class="text-center">
+                            <a href="{{ route('produk.edit', $item->id) }}" class="btn btn-warning btn-sm">
+                                ✏️ Edit
+                            </a>
+
+                            <form action="{{ route('produk.destroy', $item->id) }}" method="POST" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button onclick="return confirm('Yakin hapus produk?')" class="btn btn-danger btn-sm">
+                                    🗑 Hapus
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+
                     @empty
                         <tr>
-                            <td colspan="6" class="text-center text-muted">
+                            <td colspan="8" class="text-center text-muted">
                                 Data produk kosong
                             </td>
                         </tr>
@@ -185,3 +202,4 @@
 
 </body>
 </html>
+@endsection

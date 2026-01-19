@@ -7,6 +7,7 @@ use  App\Http\Controllers\Admin\PelangganController;
 use  App\Http\Controllers\Admin\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -15,10 +16,18 @@ Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+// Dashboard
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+
+
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/admin', function () {
         return view('admin.dashboard');
     });
+    Route::get('/admin/laporan', [TransaksiController::class, 'laporan'])->name('laporan.index');
+
 
     Route::resource('/admin/kategori', KategoriController::class);
      Route::resource('/admin/produk', ProdukController::class);

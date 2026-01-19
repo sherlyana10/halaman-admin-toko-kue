@@ -1,3 +1,6 @@
+@extends('layouts.dashboard')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -87,10 +90,10 @@
                 <input type="text" name="nama_produk" class="form-control mb-2">
 
                 <label>Harga</label>
-                <input type="number" name="harga" class="form-control mb-2">
+                <input type="number" name="harga" class="form-control mb-2" min="0" step="1">
 
                 <label>Stok</label>
-                <input type="number" name="stok" class="form-control mb-2">
+                <input type="number" name="stok" class="form-control mb-2" min="0" step="1">
 
                 <label>Deskripsi</label>
                 <textarea name="deskripsi" class="form-control mb-2" rows="4"></textarea>
@@ -112,3 +115,4 @@
 
 </body>
 </html>
+@endsection
